@@ -40,6 +40,19 @@ class ConsentResponse
         return $this;
     }
 
+    public function handleRejection(Cookie|CookiesGroup $instance): static
+    {
+        if(! $instance->hasRejectionCallback()) {
+            return $this;
+        }
+
+        $consent = $instance->getRejectionResult();
+
+        $this->attachScripts($consent->getScripts());
+
+        return $this;
+    }
+
     /**
      * Add multiple cookies to the consent response.
      */

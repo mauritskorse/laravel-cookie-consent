@@ -6,6 +6,7 @@ class Cookie
 {
     use Concerns\HasAttributes;
     use Concerns\HasConsentCallback;
+    use Concerns\HasRejectionCallback;
 
     /**
      * The cookie's name.

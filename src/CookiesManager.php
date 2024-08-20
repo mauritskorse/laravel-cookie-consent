@@ -145,7 +145,7 @@ class CookiesManager
             return array_reduce($category->getDefined(), function(ConsentResponse $response, Cookie|CookiesGroup $instance) {
                 return $this->hasConsentFor($instance->name)
                     ? $response->handleConsent($instance)
-                    : $response;
+                    : $response->handleRejection($instance);
             }, $response);
         }, new ConsentResponse());
     }

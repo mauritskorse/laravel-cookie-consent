@@ -6,6 +6,7 @@ class CookiesGroup
 {
     use Concerns\HasCookies;
     use Concerns\HasConsentCallback;
+    use Concerns\HasRejectionCallback;
 
     /**
      * The group's name.
