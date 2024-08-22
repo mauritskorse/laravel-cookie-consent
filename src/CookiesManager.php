@@ -218,7 +218,12 @@ class CookiesManager
     public function getNoticeMarkup(): string
     {
         if($policy = config('cookieconsent.policy')) {
-            $policy = route($policy);
+            if (\Illuminate\Support\Facades\Route::has($policy)) {
+                $policy = route($policy);
+            }
+            else{
+                $policy = url($policy);
+            }
         }
 
         return view('cookie-consent::cookies', [
