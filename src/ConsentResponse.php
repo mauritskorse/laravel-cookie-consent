@@ -46,9 +46,9 @@ class ConsentResponse
             return $this;
         }
 
-        $consent = $instance->getRejectionResult();
+        $rejection = $instance->getRejectionResult();
 
-        $this->attachScripts($consent->getScripts());
+        $this->attachScripts($rejection->getScripts());
 
         return $this;
     }
